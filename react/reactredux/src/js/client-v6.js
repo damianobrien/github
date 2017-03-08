@@ -49,27 +49,27 @@ const reducers = combineReducers({
 
 //second argument is the starting state
 const store = createStore(reducers, {},applyMiddleware(thunk, logger()));
-store.subscribe(()=> {
-        console.log("store changed:");
-        console.log(store.getState());
-    }
-);
-store.dispatch({type:"ADD_TODO",payload:{text:"something"}});
-store.dispatch({type:"ADD_TODO",payload:{text:"something else"}});
-
-store.dispatch((dispatch) => {
-        dispatch({type:"ADD_TODO",payload:{text:"#3"}});
-        //async here
-        axios.get("https://jsonplaceholder.typicode.com/posts")
-            .then((response) => {
-                console.log(response);
-                dispatch({type:"ADD_TODO",payload:{text:"#4"}});
-            })
-            .catch((err) => {
-                //dispatch error
-            });
-        //done with async
-})
+// store.subscribe(()=> {
+//         console.log("store changed:");
+//         console.log(store.getState());
+//     }
+// );
+// store.dispatch({type:"ADD_TODO",payload:{text:"something"}});
+// store.dispatch({type:"ADD_TODO",payload:{text:"something else"}});
+//
+// store.dispatch((dispatch) => {
+//         dispatch({type:"ADD_TODO",payload:{text:"#3"}});
+//         //async here
+//         axios.get("https://jsonplaceholder.typicode.com/posts")
+//             .then((response) => {
+//                 console.log(response);
+//                 dispatch({type:"ADD_TODO",payload:{text:"#4"}});
+//             })
+//             .catch((err) => {
+//                 //dispatch error
+//             });
+//         //done with async
+// });
 
 //WRAP THE main component in a Provider
 
