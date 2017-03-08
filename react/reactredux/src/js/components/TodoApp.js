@@ -49,6 +49,7 @@ export default class TodoApp extends React.Component {
 
   readUser(){
       this.props.dispatch(user.readUser());
+      this.props.dispatch(todo.readAll(channel));
   }
 
   loadTodos(){

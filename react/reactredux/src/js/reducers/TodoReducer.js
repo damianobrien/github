@@ -19,6 +19,11 @@ export default function(state={todos:[]},action){
             newState = { ...state, todos:todos };
             break;
         }
+        case "CHANNEL_CHANGE": {
+            // var todos = state.todos.concat(action.payload.text);
+            newState = { ...state, activeChannel:action.payload.activeChannel };
+            break;
+        }
     }
     return newState; //returns the new value of the state
 }
