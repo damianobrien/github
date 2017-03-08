@@ -3,7 +3,7 @@ import TodoList from "./TodoList";
 import { connect } from "react-redux";
 import * as user from "../actions/userActions";
 import * as todo from "../actions/todoActions";
-import axios from "axios";
+//import axios from "axios";
 
 // user.readUser();
 @connect((store)=>{
