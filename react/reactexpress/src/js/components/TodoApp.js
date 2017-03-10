@@ -42,7 +42,7 @@ export default class TodoApp extends React.Component {
         <button onClick={this.readUser.bind(this)}>Read User</button>
         <button onClick={this.loadTodos.bind(this)}>Load Todos</button>
         {/* add this */}
-        {/*this.props.children*/}
+        {this.props.children}
       </div>
     );
   }
