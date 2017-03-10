@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery 101</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <form id="search-form" class="" action="index.html" method="post">
+        <input id="search" type="text" name="search" value="">
+        <button type="submit" name="button">Search</button>
+
+    </form>
+</body>
+<script type="text/javascript">
+    $("document").ready(function() {
+        styleSelected = 4;
+        // $.ajax({
+        //     url: 'https://api.brewerydb.com/v2/beers/',
+        //     dataType: 'jsonp',
+        //     jsonp: 'myLocalCallbackFn',
+        //     type: 'GET',
+        //     data: {
+        //         key: "a4213fe0e1e97f0b6bbaa221b0e77637",
+        //         styleId: styleSelected,
+        //         format: "json"
+        //     }, //   async: false,
+        //     //   crossDomain: true,
+        //     success: myLocalCallbackFn,
+        //     error: function(httpReq, status, exception) {
+        //         alert(status + " " + exception);
+        //     }
+        // });
+
+        // $.ajax({ // type: 'GET', // dataType: 'jsonp', // jsonp: "myLocalCallbackFn", // url: 'https://api.brewerydb.com/v2/beers/', // data: { // key: "a4213fe0e1e97f0b6bbaa221b0e77637", // styleId: styleSelected, // format: "json" // }, // async: false,
+        // success: function(data) { // console.log(data); // }, // error: function() { // alert("Bad request or no results"); // } // // }); // // // // });
+
+        function logResults(json) {
+            console.log(json);
+        }
+
+        $.ajax({
+            // url: 'https://api.brewerydb.com/v2/beers/',
+            // jsonp : false,
+            // dataType: 'JSONP',
+            // jsonpCallback: 'logResults',
+            // data: {
+            //     key: "a4213fe0e1e97f0b6bbaa221b0e77637",
+            //     styleId: styleSelected,
+            //     format: "json"
+            // }
+
+            type:'GET',                                                                                                            url: 'https://api.brewerydb.com/v2/beers/',
+            data: {
+                key: "a4213fe0e1e97f0b6bbaa221b0e77637",
+                styleId: styleSelected,
+                format: "json"
+            },
+            dataType:'jsonp',
+            success: function() {
+                console.log('Success!');
+            },
+            error: function(o) {
+                console.log(o);
+                console.log('Uh Oh!');
+            },
+            // success: successFn,
+            // error: function (jqXHR, textStatus, errorThrown) {
+            //     if (typeof errorFn !== 'undefined') {
+            //         errorFn(jqXHR, textStatus, errorThrown);
+            //     }
+            // },
+            jsonp: false
+        });
+
+        function successFn(json) {
+            console.log("Got the response, did the call back:");
+            console.log(json);
+        }
+    });
+</script>
+
+</html>

@@ -1,2 +1,2 @@
 require("./mod1.js");
-require("./mod2.js");
+import User from "./mod2.js";
